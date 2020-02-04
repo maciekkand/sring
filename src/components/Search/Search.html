@@ -1,0 +1,97 @@
+<div>
+  <b-container>
+    <b-row class="my-2">
+      <span>
+        <img src="../../assets/red_pepper_transparent_siopo_65x65.png" title="logo" />
+        <router-link to="/about" active-class='active' class='mx-3'><a id="linkabout">Pomoc drogowa</a></router-link>
+      </span>
+    </b-row>
+
+    <b-row class="mb-3">
+      <b-col md="2" class='mr-1 px-0'>
+        <b-form-select id="city"
+                       data-test="city"
+                       aria-label="city"
+                       v-model="city"
+                       :options="cities" />
+      </b-col>
+
+      <b-modal ref="modalCity" data-test="modalCity" hide-footer>
+        <div class="d-block text-center">
+          <h3>Brak miasta</h3>
+        </div>
+        <b-btn class="mt-3" variant="success" block @click="hideModalCity">Zamknij</b-btn>
+      </b-modal>
+
+      <b-col md="2" class='mx-0 px-1'>
+        <b-form-input
+          id="street"
+          data-test="street"
+          aria-label="street"
+          v-model="street"
+          placeholder="Ulica">
+        </b-form-input>
+      </b-col>
+
+      <b-modal ref="modalStreet" data-test="modalStreet" hide-footer>
+        <div class="d-block text-center">
+          <h3>Brak ulicy</h3>
+        </div>
+        <b-btn class="mt-3" variant="success" block @click="hideModalStreet">Zamknij</b-btn>
+      </b-modal>
+
+      <b-col md="2" class='mx-0 px-1'>
+        <b-form-input id="streetNumber"
+                      data-test="streetNumber"
+                      aria-label="streetNumber"
+                      v-model="streetNumber"
+                      placeholder="Nr domu">
+        </b-form-input>
+      </b-col>
+
+      <b-col md="2" class='ml-0 px-1'>
+        <b-form-input id="radius"
+                      data-test="radius"
+                      aria-label="radius"
+                      v-model.number="radius"
+                      placeholder="Promień (m)"
+                      type="number"
+                      min="100"
+                      start="600"
+                      step="100">
+        </b-form-input>
+      </b-col>
+
+      <b-modal ref="modalRadius" hide-footer>
+        <div class="d-block text-center">
+          <h3>Brak promienia</h3>
+        </div>
+        <b-btn class="mt-3" variant="success" block @click="hideModalRadius">Zamknij</b-btn>
+      </b-modal>
+
+      <b-col>
+        <b-button id="search"
+                  data-test="buttonSearch"
+                  @click="search"
+                  size="md"
+                  class="ml-2 px-3">
+          Szukaj
+        </b-button>
+
+        <b-button id="reset"
+                  data-test="buttonResetLocation"
+                  @click="reset"
+                  size="md"
+                  class="ml-3 px-3">
+          Wyczyść
+        </b-button>
+
+      </b-col>
+
+      <b-col md="1" class="px-0">
+        <span v-if="loading"><img src="../../assets/spinner4.gif" title="spinner"></span>
+      </b-col>
+
+    </b-row>
+  </b-container>
+</div>

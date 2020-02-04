@@ -1,0 +1,25 @@
+<div>
+  <b-container >
+    <b-row class="mb-2" v-if="showSelector">
+      <b-form-row  class="mt-2">
+        <b-form-checkbox-group data-test="stocks"
+                               v-model="selected"
+                               aria-label="options"
+                               @change="stockSelected"
+                               class="align-middle"
+                               :options="options">
+        </b-form-checkbox-group>
+      </b-form-row>
+
+      <b-button data-test='buttonResetStock'
+                @click="resetStock"
+                size="md"
+                class="px-3 py-2">
+        Kasuj
+      </b-button>
+
+    </b-row>
+  </b-container>
+</div>
+
+

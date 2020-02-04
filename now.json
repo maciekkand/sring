@@ -1,0 +1,8 @@
+{
+  "name": "ShopsRing",
+  "version": 2,
+  "alias": "shopsring",
+  "files": [
+    "dist"
+  ]
+}
